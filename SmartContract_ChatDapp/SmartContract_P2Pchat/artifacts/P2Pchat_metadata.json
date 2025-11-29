@@ -1,0 +1,1574 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					}
+				],
+				"name": "AddressEmptyCode",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "implementation",
+						"type": "address"
+					}
+				],
+				"name": "ERC1967InvalidImplementation",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ERC1967NonPayable",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "EnforcedPause",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ExpectedPause",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "FailedCall",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidInitialization",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotInitializing",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "OwnableInvalidOwner",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "OwnableUnauthorizedAccount",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "P2Pchat__ChatAlreadyExists",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "P2Pchat__ChatDoesNotExist",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "P2Pchat__EmptyMessage",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "sent",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "required",
+						"type": "uint256"
+					}
+				],
+				"name": "P2Pchat__InsufficientFee",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "P2Pchat__InvalidAddress",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "P2Pchat__InvalidPagination",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "P2Pchat__MessageAlreadyDeleted",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "P2Pchat__MessageDoesNotExist",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxLength",
+						"type": "uint256"
+					}
+				],
+				"name": "P2Pchat__MessageTooLong",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "P2Pchat__NotMessageSender",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "P2Pchat__NotParticipant",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "P2Pchat__SelfChat",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "P2Pchat__WithdrawFailed",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ReentrancyGuardReentrantCall",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "UUPSUnauthorizedCallContext",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "slot",
+						"type": "bytes32"
+					}
+				],
+				"name": "UUPSUnsupportedProxiableUUID",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user1",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user2",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "ChatCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "deletedBy",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "ChatDeleted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "FundsWithdrawn",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "version",
+						"type": "uint64"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oldLength",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newLength",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "updatedBy",
+						"type": "address"
+					}
+				],
+				"name": "MaxMessageLengthUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "messageIndex",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "MessageDeleted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oldFee",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newFee",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "updatedBy",
+						"type": "address"
+					}
+				],
+				"name": "MessageFeeUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "messageIndex",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "MessageSent",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "messageIndex",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "MessageUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Paused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Unpaused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "implementation",
+						"type": "address"
+					}
+				],
+				"name": "Upgraded",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "UPGRADE_INTERFACE_VERSION",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					}
+				],
+				"name": "chatExistsCheck",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "exists",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "otherUser",
+						"type": "address"
+					}
+				],
+				"name": "createChat",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					}
+				],
+				"name": "deleteChat",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "messageIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "deleteMessage",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					}
+				],
+				"name": "getChat",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "user1",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "user2",
+								"type": "address"
+							},
+							{
+								"internalType": "uint32",
+								"name": "messageCount",
+								"type": "uint32"
+							},
+							{
+								"internalType": "bool",
+								"name": "exists",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint40",
+								"name": "createdAt",
+								"type": "uint40"
+							},
+							{
+								"internalType": "uint40",
+								"name": "lastActivity",
+								"type": "uint40"
+							}
+						],
+						"internalType": "struct P2Pchat.Chat",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user1",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "user2",
+						"type": "address"
+					}
+				],
+				"name": "getChatId",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getMaxMessageLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "messageIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "getMessage",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "sender",
+								"type": "address"
+							},
+							{
+								"internalType": "uint40",
+								"name": "timestamp",
+								"type": "uint40"
+							},
+							{
+								"internalType": "uint40",
+								"name": "updatedAt",
+								"type": "uint40"
+							},
+							{
+								"internalType": "bool",
+								"name": "isDeleted",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "content",
+								"type": "string"
+							}
+						],
+						"internalType": "struct P2Pchat.Message",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					}
+				],
+				"name": "getMessageCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getMessageFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "offset",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "limit",
+						"type": "uint256"
+					}
+				],
+				"name": "getMessages",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "sender",
+								"type": "address"
+							},
+							{
+								"internalType": "uint40",
+								"name": "timestamp",
+								"type": "uint40"
+							},
+							{
+								"internalType": "uint40",
+								"name": "updatedAt",
+								"type": "uint40"
+							},
+							{
+								"internalType": "bool",
+								"name": "isDeleted",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "content",
+								"type": "string"
+							}
+						],
+						"internalType": "struct P2Pchat.Message[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getUserChats",
+				"outputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "",
+						"type": "bytes32[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getVersion",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "initialOwner",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "paused",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "proxiableUUID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "string",
+						"name": "content",
+						"type": "string"
+					}
+				],
+				"name": "sendMessage",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "newMaxLength",
+						"type": "uint256"
+					}
+				],
+				"name": "setMaxMessageLength",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "newFee",
+						"type": "uint256"
+					}
+				],
+				"name": "setMessageFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "chatId",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "messageIndex",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "newContent",
+						"type": "string"
+					}
+				],
+				"name": "updateMessage",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newImplementation",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "upgradeToAndCall",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "phillong",
+			"details": "Upgradeable contract sử dụng UUPS proxy pattern theo OpenZeppelin best practices  Features: - Tạo chat room giữa 2 users - Gửi, đọc, sửa, xóa tin nhắn (CRUD đầy đủ) - Message fee mechanism - Pausable cho emergency situations - Full event logging - Gas optimized với packed structs  Security: - Reentrancy protection - Check-Effect-Interaction pattern - Access control với modifiers - Input validation đầy đủ  Upgradeability: - UUPS proxy pattern - Storage gap cho future upgrades - Version tracking",
+			"errors": {
+				"AddressEmptyCode(address)": [
+					{
+						"details": "There's no code at `target` (it is not a contract)."
+					}
+				],
+				"ERC1967InvalidImplementation(address)": [
+					{
+						"details": "The `implementation` of the proxy is invalid."
+					}
+				],
+				"ERC1967NonPayable()": [
+					{
+						"details": "An upgrade function sees `msg.value > 0` that may be lost."
+					}
+				],
+				"EnforcedPause()": [
+					{
+						"details": "The operation failed because the contract is paused."
+					}
+				],
+				"ExpectedPause()": [
+					{
+						"details": "The operation failed because the contract is not paused."
+					}
+				],
+				"FailedCall()": [
+					{
+						"details": "A call to an address target failed. The target may have reverted."
+					}
+				],
+				"InvalidInitialization()": [
+					{
+						"details": "The contract is already initialized."
+					}
+				],
+				"NotInitializing()": [
+					{
+						"details": "The contract is not initializing."
+					}
+				],
+				"OwnableInvalidOwner(address)": [
+					{
+						"details": "The owner is not a valid owner account. (eg. `address(0)`)"
+					}
+				],
+				"OwnableUnauthorizedAccount(address)": [
+					{
+						"details": "The caller account is not authorized to perform an operation."
+					}
+				],
+				"P2Pchat__ChatAlreadyExists()": [
+					{
+						"details": "Chat đã tồn tại"
+					}
+				],
+				"P2Pchat__ChatDoesNotExist()": [
+					{
+						"details": "Chat không tồn tại"
+					}
+				],
+				"P2Pchat__EmptyMessage()": [
+					{
+						"details": "Message rỗng"
+					}
+				],
+				"P2Pchat__InsufficientFee(uint256,uint256)": [
+					{
+						"details": "Fee không đủ"
+					}
+				],
+				"P2Pchat__InvalidAddress()": [
+					{
+						"details": "Address không hợp lệ"
+					}
+				],
+				"P2Pchat__InvalidPagination()": [
+					{
+						"details": "Invalid pagination parameters"
+					}
+				],
+				"P2Pchat__MessageAlreadyDeleted()": [
+					{
+						"details": "Message đã bị xóa"
+					}
+				],
+				"P2Pchat__MessageDoesNotExist()": [
+					{
+						"details": "Message không tồn tại"
+					}
+				],
+				"P2Pchat__MessageTooLong(uint256,uint256)": [
+					{
+						"details": "Message quá dài"
+					}
+				],
+				"P2Pchat__NotMessageSender()": [
+					{
+						"details": "Không phải người gửi message"
+					}
+				],
+				"P2Pchat__NotParticipant()": [
+					{
+						"details": "Không phải participant của chat"
+					}
+				],
+				"P2Pchat__SelfChat()": [
+					{
+						"details": "Không thể chat với chính mình"
+					}
+				],
+				"P2Pchat__WithdrawFailed()": [
+					{
+						"details": "Withdraw failed"
+					}
+				],
+				"ReentrancyGuardReentrantCall()": [
+					{
+						"details": "Unauthorized reentrant call."
+					}
+				],
+				"UUPSUnauthorizedCallContext()": [
+					{
+						"details": "The call is from an unauthorized context."
+					}
+				],
+				"UUPSUnsupportedProxiableUUID(bytes32)": [
+					{
+						"details": "The storage `slot` is unsupported as a UUID."
+					}
+				]
+			},
+			"events": {
+				"ChatCreated(bytes32,address,address,uint256)": {
+					"details": "Emitted khi chat mới được tạo"
+				},
+				"ChatDeleted(bytes32,address,uint256)": {
+					"details": "Emitted khi chat bị xóa hoàn toàn"
+				},
+				"FundsWithdrawn(address,uint256,uint256)": {
+					"details": "Emitted khi withdraw funds"
+				},
+				"Initialized(uint64)": {
+					"details": "Triggered when the contract has been initialized or reinitialized."
+				},
+				"MaxMessageLengthUpdated(uint256,uint256,address)": {
+					"details": "Emitted khi max message length được update"
+				},
+				"MessageDeleted(bytes32,uint256,address,uint256)": {
+					"details": "Emitted khi message bị xóa"
+				},
+				"MessageFeeUpdated(uint256,uint256,address)": {
+					"details": "Emitted khi message fee được update"
+				},
+				"MessageSent(bytes32,address,uint256,uint256)": {
+					"details": "Emitted khi message được gửi"
+				},
+				"MessageUpdated(bytes32,uint256,address,uint256)": {
+					"details": "Emitted khi message được update"
+				},
+				"Paused(address)": {
+					"details": "Emitted when the pause is triggered by `account`."
+				},
+				"Unpaused(address)": {
+					"details": "Emitted when the pause is lifted by `account`."
+				},
+				"Upgraded(address)": {
+					"details": "Emitted when the implementation is upgraded."
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"chatExistsCheck(bytes32)": {
+					"params": {
+						"chatId": "ID của chat"
+					},
+					"returns": {
+						"exists": "True nếu tồn tại"
+					}
+				},
+				"constructor": {
+					"custom:oz-upgrades-unsafe-allow": "constructor"
+				},
+				"createChat(address)": {
+					"details": "Implement Check-Effect-Interaction pattern",
+					"params": {
+						"otherUser": "Address của user muốn chat"
+					},
+					"returns": {
+						"chatId": "ID duy nhất của chat room"
+					}
+				},
+				"deleteChat(bytes32)": {
+					"details": "Xóa hết messages và chat info",
+					"params": {
+						"chatId": "ID của chat room"
+					}
+				},
+				"deleteMessage(bytes32,uint256)": {
+					"details": "Message vẫn tồn tại nhưng content bị xóa",
+					"params": {
+						"chatId": "ID của chat room",
+						"messageIndex": "Index của message"
+					}
+				},
+				"getChat(bytes32)": {
+					"params": {
+						"chatId": "ID của chat"
+					},
+					"returns": {
+						"_0": "Chat struct"
+					}
+				},
+				"getChatId(address,address)": {
+					"details": "Pure function - có thể gọi off-chain",
+					"params": {
+						"user1": "Address 1",
+						"user2": "Address 2"
+					},
+					"returns": {
+						"_0": "chatId Deterministic chat ID"
+					}
+				},
+				"getMaxMessageLength()": {
+					"returns": {
+						"_0": "Max length"
+					}
+				},
+				"getMessage(bytes32,uint256)": {
+					"params": {
+						"chatId": "ID của chat",
+						"messageIndex": "Index của message"
+					},
+					"returns": {
+						"_0": "Message struct"
+					}
+				},
+				"getMessageCount(bytes32)": {
+					"params": {
+						"chatId": "ID của chat"
+					},
+					"returns": {
+						"_0": "Số lượng messages"
+					}
+				},
+				"getMessageFee()": {
+					"returns": {
+						"_0": "Fee (wei)"
+					}
+				},
+				"getMessages(bytes32,uint256,uint256)": {
+					"details": "Gas efficient - chỉ return 1 phần messages",
+					"params": {
+						"chatId": "ID của chat",
+						"limit": "Số lượng messages tối đa",
+						"offset": "Vị trí bắt đầu (0-indexed)"
+					},
+					"returns": {
+						"_0": "Array of messages"
+					}
+				},
+				"getUserChats(address)": {
+					"params": {
+						"user": "Address của user"
+					},
+					"returns": {
+						"_0": "Array of chat IDs"
+					}
+				},
+				"getVersion()": {
+					"returns": {
+						"_0": "Version string"
+					}
+				},
+				"initialize(address)": {
+					"details": "Replace constructor trong upgradeable contracts",
+					"params": {
+						"initialOwner": "Address của owner đầu tiên"
+					}
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"pause()": {
+					"details": "Chỉ owner có thể pause"
+				},
+				"paused()": {
+					"details": "Returns true if the contract is paused, and false otherwise."
+				},
+				"proxiableUUID()": {
+					"details": "Implementation of the ERC1822 {proxiableUUID} function. This returns the storage slot used by the implementation. It is used to validate the implementation's compatibility when performing an upgrade. IMPORTANT: A proxy pointing at a proxiable contract should not be considered proxiable itself, because this risks bricking a proxy that upgrades to it, by delegating to itself until out of gas. Thus it is critical that this function revert if invoked through a proxy. This is guaranteed by the `notDelegated` modifier."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+				},
+				"sendMessage(bytes32,string)": {
+					"details": "Payable function - có thể thu fee",
+					"params": {
+						"chatId": "ID của chat room",
+						"content": "Nội dung message"
+					}
+				},
+				"setMaxMessageLength(uint256)": {
+					"params": {
+						"newMaxLength": "Length mới"
+					}
+				},
+				"setMessageFee(uint256)": {
+					"params": {
+						"newFee": "Fee mới (wei)"
+					}
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				},
+				"unpause()": {
+					"details": "Chỉ owner có thể unpause"
+				},
+				"updateMessage(bytes32,uint256,string)": {
+					"details": "Chỉ sender mới có thể update",
+					"params": {
+						"chatId": "ID của chat room",
+						"messageIndex": "Index của message trong array",
+						"newContent": "Nội dung mới"
+					}
+				},
+				"upgradeToAndCall(address,bytes)": {
+					"custom:oz-upgrades-unsafe-allow-reachable": "delegatecall",
+					"details": "Upgrade the implementation of the proxy to `newImplementation`, and subsequently execute the function call encoded in `data`. Calls {_authorizeUpgrade}. Emits an {Upgraded} event."
+				},
+				"withdraw()": {
+					"details": "Reentrancy protected"
+				}
+			},
+			"stateVariables": {
+				"__gap": {
+					"details": "Storage gap cho future upgrades"
+				},
+				"s_chats": {
+					"details": "Mapping chatId => Chat info"
+				},
+				"s_maxMessageLength": {
+					"details": "Giới hạn độ dài message (characters)"
+				},
+				"s_messageFee": {
+					"details": "Fee để gửi message (wei)"
+				},
+				"s_messages": {
+					"details": "Mapping chatId => array of messages"
+				},
+				"s_userChats": {
+					"details": "Mapping user address => array of chatIds"
+				},
+				"s_version": {
+					"details": "Contract version"
+				}
+			},
+			"title": "P2Pchat",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"chatExistsCheck(bytes32)": {
+					"notice": "Check xem chat có tồn tại không"
+				},
+				"createChat(address)": {
+					"notice": "Tạo chat room mới giữa 2 users"
+				},
+				"deleteChat(bytes32)": {
+					"notice": "Xóa toàn bộ chat room (hard delete)"
+				},
+				"deleteMessage(bytes32,uint256)": {
+					"notice": "Xóa message (soft delete)"
+				},
+				"getChat(bytes32)": {
+					"notice": "Lấy thông tin chat room"
+				},
+				"getChatId(address,address)": {
+					"notice": "Generate chat ID từ 2 addresses"
+				},
+				"getMaxMessageLength()": {
+					"notice": "Lấy max message length"
+				},
+				"getMessage(bytes32,uint256)": {
+					"notice": "Lấy 1 message cụ thể"
+				},
+				"getMessageCount(bytes32)": {
+					"notice": "Lấy số lượng messages trong chat"
+				},
+				"getMessageFee()": {
+					"notice": "Lấy message fee hiện tại"
+				},
+				"getMessages(bytes32,uint256,uint256)": {
+					"notice": "Lấy messages với pagination"
+				},
+				"getUserChats(address)": {
+					"notice": "Lấy tất cả chat IDs của user"
+				},
+				"getVersion()": {
+					"notice": "Lấy version của contract"
+				},
+				"initialize(address)": {
+					"notice": "Initialize contract - chỉ được gọi 1 lần qua proxy"
+				},
+				"pause()": {
+					"notice": "Pause contract (emergency)"
+				},
+				"sendMessage(bytes32,string)": {
+					"notice": "Gửi message trong chat room"
+				},
+				"setMaxMessageLength(uint256)": {
+					"notice": "Set max message length (chỉ owner)"
+				},
+				"setMessageFee(uint256)": {
+					"notice": "Set message fee (chỉ owner)"
+				},
+				"unpause()": {
+					"notice": "Unpause contract"
+				},
+				"updateMessage(bytes32,uint256,string)": {
+					"notice": "Update nội dung message"
+				},
+				"withdraw()": {
+					"notice": "Withdraw contract balance (fees collected)"
+				}
+			},
+			"notice": "Smart contract cho ứng dụng chat 1:1 onchain",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/P2Pchat.sol": "P2Pchat"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/interfaces/IERC1967.sol": {
+			"keccak256": "0xbf2aefe54b76d7f7bcd4f6da1080b7b1662611937d870b880db584d09cea56b5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f5e7e2f12e0feec75296e57f51f82fdaa8bd1551f4b8cc6560442c0bf60f818c",
+				"dweb:/ipfs/QmcW9wDMaQ8RbQibMarfp17a3bABzY5KraWe2YDwuUrUoz"
+			]
+		},
+		"@openzeppelin/contracts/interfaces/draft-IERC1822.sol": {
+			"keccak256": "0x82f757819bf2429a0d4db141b99a4bbe5039e4ef86dfb94e2e6d40577ed5b28b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://37c30ed931e19fb71fdb806bb504cfdb9913b7127545001b64d4487783374422",
+				"dweb:/ipfs/QmUBHpv4hm3ZmwJ4GH8BeVzK4mv41Q6vBbWXxn8HExPXza"
+			]
+		},
+		"@openzeppelin/contracts/proxy/ERC1967/ERC1967Utils.sol": {
+			"keccak256": "0xa1ad192cd45317c788618bef5cb1fb3ca4ce8b230f6433ac68cc1d850fb81618",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b43447bb85a53679d269a403c693b9d88d6c74177dfb35eddca63abaf7cf110a",
+				"dweb:/ipfs/QmXSDmpd4bNZj1PDgegr6C4w1jDaWHXCconC3rYiw9TSkQ"
+			]
+		},
+		"@openzeppelin/contracts/proxy/beacon/IBeacon.sol": {
+			"keccak256": "0x20462ddb2665e9521372c76b001d0ce196e59dbbd989de9af5576cad0bd5628b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f417fd12aeec8fbfaceaa30e3a08a0724c0bc39de363e2acf6773c897abbaf6d",
+				"dweb:/ipfs/QmU4Hko6sApdweVM92CsiuLKkCk8HfyBeutF89PCTz5Tye"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0x6d0ae6e206645341fd122d278c2cb643dea260c190531f2f3f6a0426e77b00c0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://032d1201d839435be2c85b72e33206b3ea980c569d6ebf7fa57d811ab580a82f",
+				"dweb:/ipfs/QmeqQjAtMvdZT2tG7zm39itcRJkuwu8AEReK6WRnLJ18DD"
+			]
+		},
+		"@openzeppelin/contracts/utils/Errors.sol": {
+			"keccak256": "0x6afa713bfd42cf0f7656efa91201007ac465e42049d7de1d50753a373648c123",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ba1d02f4847670a1b83dec9f7d37f0b0418d6043447b69f3a29a5f9efc547fcf",
+				"dweb:/ipfs/QmQ7iH2keLNUKgq2xSWcRmuBE5eZ3F5whYAkAGzCNNoEWB"
+			]
+		},
+		"@openzeppelin/contracts/utils/StorageSlot.sol": {
+			"keccak256": "0xcf74f855663ce2ae00ed8352666b7935f6cddea2932fdf2c3ecd30a9b1cd0e97",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9f660b1f351b757dfe01438e59888f31f33ded3afcf5cb5b0d9bf9aa6f320a8b",
+				"dweb:/ipfs/QmarDJ5hZEgBtCmmrVzEZWjub9769eD686jmzb2XpSU1cM"
+			]
+		},
+		"contracts/P2Pchat.sol": {
+			"keccak256": "0x7c20525ef4911e6a12b02635b90c6daf3f2cb9cb270be6750191f35e29eb2576",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://965443025953f033a9c80f200dba1a9df1e8d9d8c10eb46afc81658851116447",
+				"dweb:/ipfs/QmTNhGDVrS4CNxvYT7TW3UBJabAv6xhroA5qd4ad8fkbJL"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/v5.0.0/contracts/access/OwnableUpgradeable.sol": {
+			"keccak256": "0xc163fcf9bb10138631a9ba5564df1fa25db9adff73bd9ee868a8ae1858fe093a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9706d43a0124053d9880f6e31a59f31bc0a6a3dc1acd66ce0a16e1111658c5f6",
+				"dweb:/ipfs/QmUFmfowzkRwGtDu36cXV9SPTBHJ3n7dG9xQiK5B28jTf2"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/v5.0.0/contracts/proxy/utils/Initializable.sol": {
+			"keccak256": "0x631188737069917d2f909d29ce62c4d48611d326686ba6683e26b72a23bfac0b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7a61054ae84cd6c4d04c0c4450ba1d6de41e27e0a2c4f1bcdf58f796b401c609",
+				"dweb:/ipfs/QmUvtdp7X1mRVyC3CsHrtPbgoqWaXHp3S1ZR24tpAQYJWM"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/v5.0.0/contracts/proxy/utils/UUPSUpgradeable.sol": {
+			"keccak256": "0x3f13b947637c4969c0644cab4ef399cdc4b67f101463b8775c5a43b118558e53",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c6683e6ade6985d394d32baaef5eea0d8b9ff0b3eca86ae413d6cdde114a9930",
+				"dweb:/ipfs/QmdBE8T1BTddZxpdECMsb3KiCFyjNWmxcCddYrWFTXmWPj"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/v5.0.0/contracts/utils/ContextUpgradeable.sol": {
+			"keccak256": "0x72d47aebad24c59f6e78d0c3e827440173419a333fd910a37fa1e532c98f7e4c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dc8d1401a44d84ede55b6641d58f63f12a83aecb0816d577d947392b55a6b43b",
+				"dweb:/ipfs/QmUskJ7JGzg17MAgRoZfZ3p7P9uucsgm2fKyXQvxdLThLE"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/v5.0.0/contracts/utils/PausableUpgradeable.sol": {
+			"keccak256": "0x92915b7f7f642c6be3f65bfd1522feb5d5b6ef25f755f4dbb51df32c868f2f97",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://85ad36d5cc7e190e1ee6c94b24659bc3a31396c4c36b6ffa6a509e10661f8007",
+				"dweb:/ipfs/QmPFyc4zMh2zo6YWZt25gjm3YdR2hg6wGETaWw256fMmJJ"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/v5.0.0/contracts/utils/ReentrancyGuardUpgradeable.sol": {
+			"keccak256": "0xb44e086e941292cdc7f440de51478493894ef0b1aeccb0c4047445919f667f74",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://942dad22fbdc1669f025540ba63aa3ccfad5f8458fc5d4525b31ebf272e7af45",
+				"dweb:/ipfs/Qmdo4X2M82aM3AMoW2kf2jhYkSCyC4T1pHNd6obdsDFnAB"
+			]
+		}
+	},
+	"version": 1
+}
